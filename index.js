@@ -79,7 +79,12 @@ io.on('connection', function(socket){
   });
 
   socket.on('chat message', function(msg){
-    console.log("Message " + msg['message']);
+      // Read key
+      for (var key in msg) {
+        console.log(key);
+        console.log(msg[key]);
+      }
+    console.log("Message new" + msg['message']);
     io.emit('chat message', msg);
   });
 });
